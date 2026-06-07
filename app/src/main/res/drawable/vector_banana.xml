@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Banana body (filled yellow) -->
+    <path
+        android:fillColor="#F5C518"
+        android:strokeColor="#C9A200"
+        android:strokeWidth="0.8"
+        android:pathData="
+            M7,18
+            C5,15 4,11 5.5,7.5
+            C6.5,5 8.5,3.5 10,3
+            C11,2.7 12,3 12.5,3.5
+            C11.5,4 10,5.5 9,8
+            C7.5,11.5 8.5,15 10.5,17.5
+            Z" />
+
+    <!-- Banana tip (stem end) -->
+    <path
+        android:fillColor="#8B6914"
+        android:strokeColor="#8B6914"
+        android:strokeWidth="0.5"
+        android:pathData="
+            M10,3
+            C10.5,2.5 11.5,2.5 12.5,3.5
+            C12,3.2 11,3 10,3
+            Z" />
+
+    <!-- Banana outer curve highlight -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#C9A200"
+        android:strokeWidth="1.2"
+        android:strokeLineCap="round"
+        android:pathData="
+            M12.5,3.5
+            C15,5 17,8 16.5,12
+            C16,15.5 13.5,18 10.5,17.5" />
+
+</vector>
