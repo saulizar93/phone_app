@@ -86,4 +86,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return movieList;
     }
 
+    public boolean deleteMovie(int movieId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        int result = db.delete(
+                TABLE_MOVIES,
+                COLUMN_ID + " = ?",
+                new String[]{String.valueOf(movieId)}
+        );
+
+        return result > 0;
+    }
+
 }
