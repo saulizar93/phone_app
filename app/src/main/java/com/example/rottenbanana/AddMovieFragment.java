@@ -17,6 +17,7 @@ public class AddMovieFragment extends Fragment {
 
     private EditText etTitle, etYear, etDescription;
     private Spinner spinnerGenre;
+    private DatabaseHelper dbHelper;
 
     @Nullable
     @Override
@@ -24,6 +25,9 @@ public class AddMovieFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_movie, container, false);
+
+        // Initialize Database Helper
+        dbHelper = new DatabaseHelper(requireContext());
 
         etTitle = view.findViewById(R.id.et_title);
         etYear = view.findViewById(R.id.et_year);
@@ -77,15 +81,24 @@ public class AddMovieFragment extends Fragment {
             return;
         }
 
-        // All valid — for now just show a confirmation toast
-        Toast.makeText(getContext(),
-                "\"" + title + "\" added successfully! 🍌",
-                Toast.LENGTH_LONG).show();
+        // Create a new Movie object
+        Movie newMovie = new Movie(title, year, genre, description);
 
-        // Clear form
-        etTitle.setText("");
-        etYear.setText("");
-        etDescription.setText("");
-        spinnerGenre.setSelection(0);
+        // Insert into SQLite database
+        boolean isSuccess = dbHelper.addMovie(newMovie);
+
+        if (isSuccess) {
+            Toast.makeText(getContext(),
+                    "\"" + title + "\" saved to database successfully! 🍌",
+                    Toast.LENGTH_LONG).show();
+
+            // Clear form fields
+            etTitle.setText("");
+            etYear.setText("");
+            etDescription.setText("");
+            spinnerGenre.setSelection(0);
+        } else {
+            Toast.makeText(getContext(), "Error saving movie. Please try again.", Toast.LENGTH_SHORT).show();
+        }
     }
 }
