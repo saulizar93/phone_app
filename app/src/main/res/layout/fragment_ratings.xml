@@ -3,33 +3,24 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
-    android:padding="32dp">
+    android:padding="16dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="🍌"
-        android:textSize="64sp"
-        android:layout_marginBottom="16dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Movie Ratings"
+        android:text="Movie Ratings 🍌"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/primary_yellow"
-        android:layout_marginBottom="12dp" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Soon you'll be able to browse a list of movies with their average community ratings and cast your own vote!"
-        android:textSize="16sp"
-        android:textAlignment="center"
-        android:textColor="@android:color/darker_gray"
-        android:lineSpacingMultiplier="1.4" />
+    <ListView
+        android:id="@+id/lv_movies"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0.5dp" />
 
 </LinearLayout>
