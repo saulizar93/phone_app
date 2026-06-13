@@ -10,14 +10,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="📍"
+        android:text="@string/map_emoji"
         android:textSize="64sp"
         android:layout_marginBottom="16dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Theaters Near You"
+        android:text="@string/map_title"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/primary_yellow"
@@ -26,7 +26,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Coming soon! You'll be able to find theaters near you and see what's playing."
+        android:text="@string/map_coming_soon"
         android:textSize="16sp"
         android:textAlignment="center"
         android:textColor="@android:color/darker_gray"

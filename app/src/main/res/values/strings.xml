@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">Rotten Bananas</string>
+
+    <!-- Add Movie -->
+    <string name="add_movie_title">🎬 Add a Movie</string>
+    <string name="label_movie_title">Movie Title</string>
+    <string name="label_release_year">Release Year</string>
+    <string name="label_genre">Genre</string>
+    <string name="label_description">Short Description</string>
+    <string name="btn_add_movie">Add Movie</string>
+
+    <!-- Map -->
+    <string name="map_emoji">📍</string>
+    <string name="map_title">Theaters Near You</string>
+    <string name="map_coming_soon">Coming soon! You\'ll be able to find theaters near you and see what\'s playing.</string>
+
+    <!-- Ratings -->
+    <string name="ratings_title">Movie Ratings 🍌</string>
+
+    <!-- Settings -->
+    <string name="settings_title">⚙️ Settings</string>
+    <string name="settings_section_display">Display</string>
+    <string name="settings_dark_mode">Dark Mode</string>
+    <string name="settings_font_size">Font Size</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_section_notifications">Notifications</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_section_data">Data</string>
+    <string name="settings_clear_data">Clear All Data</string>
+    <string name="settings_btn_delete">Delete</string>
+    <string name="settings_section_about">About</string>
+    <string name="settings_privacy_policy">Privacy Policy</string>
+    <string name="settings_btn_view">View</string>
+    <string name="settings_app_version">App Version 1.0</string>
 </resources>
