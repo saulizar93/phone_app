@@ -9,6 +9,8 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import android.app.AlertDialog;
+import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +18,7 @@ public class RatingsFragment extends Fragment {
 
     private DatabaseHelper dbHelper;
     private ListView lvMovies;
+    private List<Movie> movieList;
 
     @Nullable
     @Override
@@ -33,16 +36,13 @@ public class RatingsFragment extends Fragment {
     }
 
     private void displayMovies() {
-        // Fetch the list of movies from the database
-        List<Movie> movieList = dbHelper.getAllMovies();
+        movieList = dbHelper.getAllMovies();
         List<String> movieStrings = new ArrayList<>();
 
-        // Format how each movie will look in the list item
         for (Movie movie : movieList) {
             movieStrings.add(movie.getTitle() + " (" + movie.getYear() + ")\nGenre: " + movie.getGenre());
         }
 
-        // Bind the list array to the basic Android text list item layout
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 requireContext(),
                 android.R.layout.simple_list_item_1,
@@ -50,5 +50,27 @@ public class RatingsFragment extends Fragment {
         );
 
         lvMovies.setAdapter(adapter);
+
+        lvMovies.setOnItemLongClickListener((parent, view, position, id) -> {
+            Movie selectedMovie = movieList.get(position);
+
+            new AlertDialog.Builder(requireContext())
+                    .setTitle("Delete Movie")
+                    .setMessage("Delete \"" + selectedMovie.getTitle() + "\"?")
+                    .setPositiveButton("Delete", (dialog, which) -> {
+                        boolean deleted = dbHelper.deleteMovie(selectedMovie.getId());
+
+                        if (deleted) {
+                            Toast.makeText(requireContext(), "Movie deleted", Toast.LENGTH_SHORT).show();
+                            displayMovies();
+                        } else {
+                            Toast.makeText(requireContext(), "Could not delete movie", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .setNegativeButton("Cancel", null)
+                    .show();
+
+            return true;
+        });
     }
 }
